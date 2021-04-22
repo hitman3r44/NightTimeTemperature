@@ -1,0 +1,4 @@
+com/yorkdigital/NightTimeTemperature/NightTimeTemperatureServiceIntegrationTest.java
+ com.yorkdigital.NightTimeTemperature.NightTimeTemperatureServiceIntegrationTest
+com/yorkdigital/NightTimeTemperature/NightTimeTemperatureApplicationTests.java
+ com.yorkdigital.NightTimeTemperature.NightTimeTemperatureApplicationTests

@@ -1,0 +1,8 @@
+version: '3.2'
+services:
+  qa:
+    environment:
+      spring_profiles_active: qa
+    build: Docker/qa
+    ports:
+      - "8060:9090"

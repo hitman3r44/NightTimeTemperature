@@ -1,0 +1,20 @@
+com/yorkdigital/NightTimeTemperature/config/AppConfig.java
+ com.yorkdigital.NightTimeTemperature.config.AppConfig
+com/yorkdigital/NightTimeTemperature/model/ResultsOutput.java
+ com.yorkdigital.NightTimeTemperature.model.ResultsOutput
+com/yorkdigital/NightTimeTemperature/service/NightTimeTemperatureService.java
+ com.yorkdigital.NightTimeTemperature.service.NightTimeTemperatureService
+com/yorkdigital/NightTimeTemperature/controller/NightTimeTemperatureController.java
+ com.yorkdigital.NightTimeTemperature.controller.NightTimeTemperatureController
+com/yorkdigital/NightTimeTemperature/model/Temperature.java
+ com.yorkdigital.NightTimeTemperature.model.Temperature
+com/yorkdigital/NightTimeTemperature/model/NightTimeTemperature.java
+ com.yorkdigital.NightTimeTemperature.model.NightTimeTemperature
+com/yorkdigital/NightTimeTemperature/NightTimeTemperatureApplication.java
+ com.yorkdigital.NightTimeTemperature.NightTimeTemperatureApplication
+com/yorkdigital/NightTimeTemperature/service/TemperatureService.java
+ com.yorkdigital.NightTimeTemperature.service.TemperatureService
+com/yorkdigital/NightTimeTemperature/config/WiremockServerInit.java
+ com.yorkdigital.NightTimeTemperature.config.WiremockServerInit
+com/yorkdigital/NightTimeTemperature/service/NightTimeTemperatureServiceImpl.java
+ com.yorkdigital.NightTimeTemperature.service.NightTimeTemperatureServiceImpl

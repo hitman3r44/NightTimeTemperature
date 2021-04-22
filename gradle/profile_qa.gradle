@@ -1,0 +1,21 @@
+println 'from profile qa' + project.getName()
+
+version = '0.0.1-SNAPSHOT-QA'
+//task to generate qa jar
+task qaJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File NightTimeTemperature',
+                'Implementation-Version': version,
+                'Main-Class': 'com.yorkdigital.NightTimeTemperature'
+    }
+    baseName = project.name + '-all' + 'qa'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task copyJarQA(type: Copy) {
+    copy {
+        from "build/libs/NightTimeTemperature-0.0.1-SNAPSHOT-QA.jar"
+        into "Docker/qa"
+    }
+}

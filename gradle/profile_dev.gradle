@@ -1,0 +1,23 @@
+println 'from profile dev' + project.getName()
+
+version = '0.0.1-SNAPSHOT-DEV'
+//task to generate dev jar 
+task devJar(type: Jar) {
+    System.setProperty('buildProfile', 'dev')
+    project.ext.setProperty('buildProfile', 'dev')
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Wiremock NightTimeTemperature',
+                'Implementation-Version': version,
+                'Main-Class': 'com.yorkdigital.NightTimeTemperature.NightTimeTemperatureApplication'
+    }
+    baseName = project.name + '-all' + 'dev'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task copyJarDEV(type: Copy) {
+    copy {
+        from "build/libs/NightTimeTemperature-0.0.1-SNAPSHOT-DEV.jar"
+        into "Docker/dev"
+    }
+}

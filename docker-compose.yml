@@ -1,0 +1,10 @@
+version: '3.2'
+services:
+  dev:
+    build: Docker/dev
+    ports:
+      - "9010:9090"
+  qa:
+    build: Docker/qa
+    ports:
+      - "9020:9090"

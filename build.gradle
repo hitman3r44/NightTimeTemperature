@@ -1,0 +1,62 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: "application"
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.yorkdigital'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '8'
+
+ext.javaMainClass = "com.yorkdigital.NightTimeTemperature.NightTimeTemperatureApplication"
+
+application {
+    mainClassName = javaMainClass
+}
+
+
+//command: gradle -PbuildProfile=dev build
+if (project.hasProperty('buildProfile')) {
+    def buildProfile = project.getProperty('buildProfile')
+    if (buildProfile == 'dev') {
+        //activeProfile = devProfiles
+        apply from: rootProject.file('gradle/profile_dev.gradle');
+    } else {
+        //activeProfile = qaProfiles
+        apply from: rootProject.file('gradle/profile_qa.gradle');
+    }
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'log4j:log4j:1.2.17'
+    compile "com.github.tomakehurst:wiremock-jre8:2.27.2"
+    compile 'org.springframework.boot:spring-boot-starter-test'
+    compile 'org.assertj:assertj-core:3.0.0'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-web-services'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testCompile "com.github.tomakehurst:wiremock-jre8:2.27.2"
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('com.jayway.jsonpath:json-path')
+    testCompile("org.projectlombok:lombok:1.16.14")
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    compileOnly "org.projectlombok:lombok:1.16.16"
+}
+
+test {
+    useJUnitPlatform()
+}
